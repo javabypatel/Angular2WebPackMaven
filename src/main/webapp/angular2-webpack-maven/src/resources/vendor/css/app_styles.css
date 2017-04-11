@@ -1,0 +1,27 @@
+a { 
+	cursor: pointer; 
+}
+.modal-mg {
+	width: 600px; 
+}
+
+.error {
+	color: #a94442;
+	margin-top: 7px;
+}
+
+.app-config h2 {
+	margin-left: 20px;
+	margin-top: 31px;
+	margin-bottom: 31px;
+	font-size: 1.5rem;
+	font-family: "Roboto", sans-serif;
+    font-size: 16px;
+	font-weight: bold;
+}
+
+.title-heading {
+	margin-bottom: 20px;
+}
+
+label.required:after {content: " *"; color: red;}

@@ -1,0 +1,237 @@
+/*Colors
+
+Primary: #3C5064;
+
+
+*/
+
+/*---Global-------------------*/
+
+
+input {
+	border-radius: 2px !important;
+}
+
+h1 {
+	font-weight: 500;
+}
+
+
+
+
+/*---Navbar-------------------*/
+
+.navbar {
+	border-radius: 0;
+}
+
+/*---Head-------------------*/
+
+
+.import-btn {
+	margin-top: 20px;
+}
+
+.import-btn input {
+	display: none;
+}
+
+.title {
+	position: relative;
+}
+
+.alert-cstm {
+  position: absolute; 
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+  
+}
+
+
+/*---Table Styles-------------------*/
+.table-bar {
+	height: 39px;
+	background-color: #eee;
+}
+
+.left-section span:nth-child(1) {
+	margin-left: 10px;
+}
+
+.left-section span {
+	margin-right: 10px;
+	position: relative;
+	top: 10px;
+	font-size: 1.5rem;
+}
+
+.separator {
+	border-right: 2px solid #D6D6D6;
+}
+
+.right-section {
+	margin-right: 10px;
+	padding-top: 5px;
+}
+
+
+.input-group {
+	width: 200px;
+}
+
+.table-body {
+	margin-top: 30px;
+}
+
+.bd-bottom-fx {
+	    border-bottom: 2px solid #ddd;
+}
+
+
+.table-fixed thead {
+  
+}
+.table-fixed tbody {
+  height: 230px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.dsbl-state {
+   pointer-events: none;
+   cursor: default;
+   color: #777;
+}
+
+.enble-state {
+   cursor: pointer;
+   color: #337ab7;
+}
+
+
+
+
+/*---Create Project > Porject Breif-------------------*/
+
+.proj-brief {
+	border-radius: 5px;
+	margin-left: 0px;
+	margin-right: 0px;
+	padding: 20px;
+	margin-top: 20px;
+	background-color: #eee;
+}
+
+.descr {
+		margin-bottom: 0;
+}
+
+.form-group > input, .form-group > textarea {
+	margin-left: 5px;
+
+}
+
+.proj-form {
+	border-left: 2px solid #eee;
+}
+
+
+
+/*---Create Project > Sidebar-------------------*/
+
+.panel {
+	box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+
+.folder-nav {
+	margin-top: 20px;
+	margin-left: 20px;
+}
+
+.folder-nav a {
+	font-size: 1.5rem;
+}
+
+.list-group-submenu {
+  margin-left:20px;
+}
+
+.glyphicon {
+	color: #3C5064;
+}
+
+.glyphicon-triangle-bottom {
+	margin-right: 10px;
+	font-size: 1.2rem;
+}
+
+.glyphicon-list-alt, .glyphicon-cog, .glyphicon-folder-close, .glyphicon-hdd {
+	margin-right: 5px;
+}
+
+
+/*---Create Project > Application Configure-------------------*/
+
+.app-config h2 {
+	margin-left: 20px;
+	margin-top: 31px;
+	font-size: 1.5rem;
+}
+
+.app-config > form {
+	margin-top: 40px;
+}
+
+
+.form-group.inst > label {
+	padding-top: 0;
+}
+
+.form-group.subs {
+	margin-top: 60px;
+}
+
+
+/*---Create Project > Application Document-------------------*/
+
+
+.rogue-sel {
+	width: 135px;
+	display: inline;
+}
+
+
+/*---Create Project > Assign Project-------------------*/
+
+.assign-box {
+	margin-top: 40px;
+}
+
+.assign-subs {
+	margin-top: 60px;
+}
+
+
+/*---Select Action-------------------*/
+
+
+.check-width {
+	width: 10px;
+}
+
+@media all and (-ms-high-contrast:none)
+             {
+             tr { height: 20px } /* IE10 */
+             *::-ms-backdrop, tr { height: 20px; } /* IE11 */
+             }
+/*IE EDGE */
+@supports (-ms-ime-align:auto) {
+    tr { height: 20px; }  
+}
+
+
+

@@ -1,0 +1,172 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.javabypatel.test</groupId>
+	<artifactId>Angular2WebPackMaven</artifactId>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<name>Angular2 + Webpack + Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<properties>
+	    <nodeVersion>v5.11.0</nodeVersion>
+		<npmVersion>4.3.0</npmVersion>	
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.8.2</version>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>com.sun.jersey</groupId>
+			<artifactId>jersey-server</artifactId>
+			<version>1.8</version>
+		</dependency>
+
+	</dependencies>
+
+	<build>
+		<finalName>Angular2WebPackMaven</finalName>
+		<plugins>
+			<!-- START OF BUILDING ANGULAR APP START -->
+		
+	        <!-- Step 1: Compile and build the angular2 webapp -->
+	        <plugin>
+	            <groupId>com.github.eirslett</groupId>
+	            <artifactId>frontend-maven-plugin</artifactId>
+	            <version>1.0</version>
+	            <configuration>
+	                <workingDirectory>src/main/webapp/angular2-webpack-maven/</workingDirectory>
+	                <installDirectory>target/buildtemp/frontend-maven-plugin</installDirectory>
+	            </configuration>
+	            <executions>
+				
+	                <!-- It will install nodejs and npm -->
+	                <execution>
+	                    <id>install node and npm</id>
+	                    <goals>
+	                        <goal>install-node-and-npm</goal>
+	                    </goals>
+	                    <configuration>
+	                        <workingDirectory>src/main/webapp/</workingDirectory>
+	                        <installDirectory>target/buildtemp/node-and-npm</installDirectory>
+	                        <nodeVersion>${nodeVersion}</nodeVersion>
+	                        <npmVersion>${npmVersion}</npmVersion>
+	                    </configuration>
+	                </execution>
+	            
+					<!-- Install webpack module -->
+					<execution>
+	                    <id>npm webpack</id>
+	                    <goals>
+	                        <goal>npm</goal>
+	                    </goals>
+	                    <configuration>
+						    <workingDirectory>src/main/webapp/angular2-webpack-maven/</workingDirectory>
+							<installDirectory>target/buildtemp/node-and-npm</installDirectory>
+	                        <arguments>install webpack -g</arguments>
+	                    </configuration>
+	                </execution>
+					
+					<!-- Download all dependencies in node_modules -->
+					<execution>
+	                    <id>npm install</id>
+	                    <goals>
+	                        <goal>npm</goal>
+	                    </goals>
+	                    <configuration>
+							<workingDirectory>src/main/webapp/angular2-webpack-maven/</workingDirectory>
+							<installDirectory>target/buildtemp/node-and-npm</installDirectory>
+	                        <arguments>install</arguments>
+	                    </configuration>
+	                </execution>
+					
+					<!-- Converting ts file to js and bundling them all together. -->
+					<!-- For Dev Environment. -->
+	                
+					<execution>
+	                    <id>npm build</id>
+	                    <goals>
+	                        <goal>npm</goal>
+	                    </goals>
+	                    <configuration>
+	                        <workingDirectory>src/main/webapp/angular2-webpack-maven</workingDirectory>
+	                        <installDirectory>target/buildtemp/node-and-npm/</installDirectory>
+	                        <arguments>run build</arguments>
+	                    </configuration>
+	                </execution>
+					
+					
+					<!-- Converting ts file to js and bundling them all together. -->
+					<!-- For Prod Environment. -->
+					<!-- For Prod Environment, it does obfuscation, compression etc -->
+					<!--
+					<execution>
+	                    <id>npm build</id>
+	                    <goals>
+	                        <goal>npm</goal>
+	                    </goals>
+	                    <configuration>
+	                        <workingDirectory>src/main/webapp/angular2-webpack-maven</workingDirectory>
+	                        <installDirectory>target/buildtemp/node-and-npm/</installDirectory>
+	                        <arguments>run build:prod</arguments>
+	                    </configuration>
+	                </execution>
+					-->
+					
+	            </executions>
+	        </plugin>
+	        <!-- START OF BUILDING ANGULAR APP END -->
+		        
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+				</configuration>
+			</plugin>
+			
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.1.1</version>
+				<configuration>
+					<webResources>
+						<resource>
+						  <directory>src/main/webapp/angular2-webpack-maven/target</directory>
+						  <targetPath>angular2-webpack-maven</targetPath>
+						</resource>
+					</webResources>
+					<failOnMissingWebXml>false</failOnMissingWebXml>
+					<warSourceExcludes>**/angular2-webpack-maven/**</warSourceExcludes>
+				</configuration>
+			</plugin>
+			
+			<!-- START OF BUILDING ANGULAR APP START -->
+			<!-- Step 3: Clean up the build artifacts -->
+	        <plugin>
+	            <artifactId>maven-clean-plugin</artifactId>
+	            <version>3.0.0</version>
+	            <configuration>
+	                <filesets>
+	                    <fileset>
+	                        <directory>src/main/webapp/angular2-webpack-maven/dist</directory>
+	                        <includes>
+	                            <include>**/*</include>
+	                        </includes>
+	                        <followSymlinks>false</followSymlinks>
+	                    </fileset>
+	                </filesets>
+	            </configuration>
+	        </plugin>
+	        <!-- START OF BUILDING ANGULAR APP END -->	
+		</plugins>
+	</build>
+
+</project>
