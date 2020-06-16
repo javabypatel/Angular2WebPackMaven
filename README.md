@@ -12,4 +12,4 @@ Steps to run the application:
     
  ![output-image](https://1.bp.blogspot.com/-woDsAuhAa1c/WOvbgqW5v0I/AAAAAAAABtk/Ron90z8ZOIEpTDU4WBbYnDZytboz2-qdgCLcB/s1600/angular2-webpack-maven.png)   
 
-For detailed explanation, Please visit, http://javabypatel.blogspot.in/2017/04/angular2-webpack-maven-sample.html
+For detailed explanation, Please visit, https://javabypatel.blogspot.com/2017/04/angular2-webpack-maven-sample.html
